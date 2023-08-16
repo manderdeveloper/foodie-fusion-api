@@ -1,38 +1,38 @@
 import { injectable } from "inversify";
-import { Ingredient } from "../../../../domain/models/Ingredient";
-import { IngredientRepository } from "../../../../domain/repositories/IngredientRepository";
+import { Dish } from "../../../../domain/models/Dish";
+import { DishRepository } from "../../../../domain/repositories/DishIngredient";
 
 @injectable()
-export class InMemoryIngredientRepository implements IngredientRepository {
+export class InMemoryDishRepository implements DishRepository {
   
-  private ingredients : Ingredient[] = [];
+  private dishes : Dish[] = [];
 
-  getAll(): Promise<Ingredient[]> {
-    return Promise.resolve(this.ingredients);
+  getAll(): Promise<Dish[]> {
+    return Promise.resolve(this.dishes);
   }
 
-  getById(id: string): Promise<Ingredient | null> {
-    const ingredient = this.ingredients.find(ingredient => ingredient.id.value === id);
-    return Promise.resolve(ingredient || null);
+  getById(id: string): Promise<Dish | null> {
+    const dish = this.dishes.find(dish => dish.id.value === id);
+    return Promise.resolve(dish || null);
   }
 
-  create(model: Ingredient): Promise<void> {
-    this.ingredients.push(model);
+  create(model: Dish): Promise<void> {
+    this.dishes.push(model);
     return Promise.resolve();
   }
 
-  update(model: Ingredient): Promise<void> {
-    const index = this.ingredients.findIndex((ingredient) => ingredient.id.value === model.id.value);
+  update(model: Dish): Promise<void> {
+    const index = this.dishes.findIndex((dish) => dish.id.value === model.id.value);
     if (index === -1) {
-      this.ingredients[index] = model;
+      this.dishes[index] = model;
     }
     return Promise.resolve();
   }
 
   delete(id: string): Promise<void> {
-    const index = this.ingredients.findIndex((ingredient) => ingredient.id.value === id);
+    const index = this.dishes.findIndex((dish) => dish.id.value === id);
     if (index !== -1) {
-      this.ingredients.splice(index, 1);
+      this.dishes.splice(index, 1);
     }
     return Promise.resolve();
   }
