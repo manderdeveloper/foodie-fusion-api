@@ -19,6 +19,8 @@ import { InMemoryUserRepository } from "../persistence/repositories/User/InMemor
 import { UserController } from "../../application/interface/controller/UserController";
 import { CreateUserUseCase } from "../../application/usecase/user/CreateUserCase";
 import { ListUserUseCase } from "../../application/usecase/user/ListUserUseCase";
+import { AuthController } from "../../application/interface/controller/AuthController";
+import { AuthService } from "../../application/service/AuthService";
 
 // Repositories
 container.bind<IngredientRepository>('IngredientRepository').toConstantValue(new InMemoryIngredientRepository);
@@ -30,6 +32,7 @@ container.bind<HealthController>(CONTROLLERTYPES.HealthController).to(HealthCont
 container.bind<IngredientController>(CONTROLLERTYPES.IngredientController).to(IngredientController);
 container.bind<DishController>(CONTROLLERTYPES.DishController).to(DishController);
 container.bind<UserController>(CONTROLLERTYPES.UserController).to(UserController);
+container.bind<AuthController>(CONTROLLERTYPES.AuthController).to(AuthController)
 
 //UseCases
 container.bind<CreateIngredientUseCase>(USECASETYPES.CreateIngredientUseCase).to(CreateIngredientUseCase);
@@ -41,5 +44,9 @@ container.bind<ListDishUseCase>(USECASETYPES.ListDishUseCase).to(ListDishUseCase
 container.bind<CreateUserUseCase>(USECASETYPES.CreateUserUseCase).to(CreateUserUseCase);
 container.bind<ListUserUseCase>(USECASETYPES.ListUserUseCase).to(ListUserUseCase);
 
+//Services
+container.bind<AuthService>('AuthService').to(AuthService);
+
 //Middlewares
 container.bind<Logger>('Logger').to(ConsoleLogger);
+
