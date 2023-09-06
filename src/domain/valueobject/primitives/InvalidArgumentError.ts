@@ -1,1 +1,3 @@
-export class InvalidArgumentError extends Error {}
+import { InvalidAppError } from "../../../shared/error/InvalidAppError";
+
+export class InvalidArgumentError extends InvalidAppError {}

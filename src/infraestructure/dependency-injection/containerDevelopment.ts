@@ -12,6 +12,8 @@ import { IngredientController } from "../../application/interface/controller/Ing
 import { CONTROLLERTYPES } from "../../shared/type/ControllerTypes";
 import { USECASETYPES } from "../../shared/type/UseCaseTypes";
 import { container } from "./containerBase";
+import { Logger } from "../../application/interface/middleware/Logger";
+import { ConsoleLogger } from "../logging/ConsoleLogger";
 
 // Repositories
 container.bind<IngredientRepository>('IngredientRepository').toConstantValue(new InMemoryIngredientRepository);
@@ -28,3 +30,6 @@ container.bind<ListIngredientUseCase>(USECASETYPES.ListIngredientUseCase).to(Lis
 
 container.bind<CreateDishUseCase>(USECASETYPES.CreateDishUseCase).to(CreateDishUseCase);
 container.bind<ListDishUseCase>(USECASETYPES.ListDishUseCase).to(ListDishUseCase);
+
+//Middlewares
+container.bind<Logger>('Logger').to(ConsoleLogger);

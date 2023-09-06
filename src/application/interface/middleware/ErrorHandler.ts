@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { AppError } from '../../../shared/error/AppError';
 import { container } from '../../../infraestructure/dependency-injection/containerBase';
 import { Logger } from './Logger';
 
