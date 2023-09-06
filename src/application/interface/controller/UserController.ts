@@ -4,6 +4,7 @@ import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
 import { NextFunction, Request, Response } from "express";
 import { CreateUserUseCase } from "../../usecase/user/CreateUserCase";
 import { ListUserUseCase } from "../../usecase/user/ListUserUseCase";
+import { validationAdminApiKey } from "../middleware/Auth";
 
 
 @controller('/api/users')
@@ -13,7 +14,7 @@ export class UserController {
     @inject(USECASETYPES.ListUserUseCase) private listUserUseCase: ListUserUseCase
   ) { }
 
-  @httpPost('/')
+  @httpPost('/', validationAdminApiKey())
   async create(req: Request, res: Response, next: NextFunction) {
     try {
       const body = req.body;
