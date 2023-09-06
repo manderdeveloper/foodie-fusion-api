@@ -1,5 +1,5 @@
 import { inject, injectable } from "inversify";
-import { IngredientRepository } from "../../../domain/repositories/IngredientRepository";
+import { IngredientRepository } from "../../../domain/repository/IngredientRepository";
 
 
 @injectable()

@@ -1,6 +1,6 @@
 import { inject, injectable } from "inversify";
-import { IngredientRepository } from "../../../domain/repositories/IngredientRepository";
-import { Ingredient } from "../../../domain/models/Ingredient";
+import { IngredientRepository } from "../../../domain/repository/IngredientRepository";
+import { Ingredient } from "../../../domain/model/Ingredient";
 
 
 @injectable()

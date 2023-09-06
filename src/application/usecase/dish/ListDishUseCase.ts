@@ -1,5 +1,5 @@
 import { inject, injectable } from "inversify";
-import { DishRepository } from "../../../domain/repositories/DishIngredient";
+import { DishRepository } from "../../../domain/repository/DishIngredient";
 
 @injectable()
 export class ListDishUseCase {

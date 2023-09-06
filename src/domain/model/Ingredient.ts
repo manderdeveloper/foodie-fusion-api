@@ -1,5 +1,5 @@
-import { IngredientId } from "../valueObjects/ingredient/IngredientId";
-import { IngredientName } from "../valueObjects/ingredient/IngredientName";
+import { IngredientId } from "../valueobject/ingredient/IngredientId";
+import { IngredientName } from "../valueobject/ingredient/IngredientName";
 
 export class Ingredient {
   readonly id: IngredientId;

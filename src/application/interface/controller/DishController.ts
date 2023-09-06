@@ -1,9 +1,9 @@
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { USECASETYPES } from "../../shared/types/UseCaseTypes";
+import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
 import { NextFunction, Request, Response } from "express";
-import { CreateDishUseCase } from "../../application/useCases/dish/CreateDishUseCase";
-import { ListDishUseCase } from "../../application/useCases/dish/ListDishUseCase";
+import { CreateDishUseCase } from "../../usecase/dish/CreateDishUseCase";
+import { ListDishUseCase } from "../../usecase/dish/ListDishUseCase";
 
 
 @controller('/api/dishes')

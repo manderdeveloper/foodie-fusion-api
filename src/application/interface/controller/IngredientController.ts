@@ -1,9 +1,9 @@
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { USECASETYPES } from "../../shared/types/UseCaseTypes";
-import { CreateIngredientUseCase } from "../../application/useCases/ingredient/CreateIngredientUseCase";
+import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
+import { CreateIngredientUseCase } from "../../usecase/ingredient/CreateIngredientUseCase";
 import { NextFunction, Request, Response } from "express";
-import { ListIngredientUseCase } from "../../application/useCases/ingredient/ListIngredientUseCase";
+import { ListIngredientUseCase } from "../../usecase/ingredient/ListIngredientUseCase";
 
 
 @controller('/api/ingredients')

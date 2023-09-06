@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
-import { Dish } from "../../../../domain/models/Dish";
-import { DishRepository } from "../../../../domain/repositories/DishIngredient";
+import { Dish } from "../../../../domain/model/Dish";
+import { DishRepository } from "../../../../domain/repository/DishIngredient";
 
 @injectable()
 export class InMemoryDishRepository implements DishRepository {

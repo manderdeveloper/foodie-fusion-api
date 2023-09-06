@@ -1,5 +1,5 @@
-import { DishId } from "../valueObjects/dish/DishId";
-import { DishName } from "../valueObjects/dish/DishName";
+import { DishId } from "../valueobject/dish/DishId";
+import { DishName } from "../valueobject/dish/DishName";
 import { Ingredient } from "./Ingredient";
 
 export class Dish {

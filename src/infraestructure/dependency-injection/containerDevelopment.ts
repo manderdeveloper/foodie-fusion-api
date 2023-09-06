@@ -1,16 +1,16 @@
-import { CreateDishUseCase } from "../../application/useCases/dish/CreateDishUseCase";
-import { ListDishUseCase } from "../../application/useCases/dish/ListDishUseCase";
-import { CreateIngredientUseCase } from "../../application/useCases/ingredient/CreateIngredientUseCase";
-import { ListIngredientUseCase } from "../../application/useCases/ingredient/ListIngredientUseCase";
-import { DishRepository } from "../../domain/repositories/DishIngredient";
-import { IngredientRepository } from "../../domain/repositories/IngredientRepository";
+import { CreateDishUseCase } from "../../application/usecase/dish/CreateDishUseCase";
+import { ListDishUseCase } from "../../application/usecase/dish/ListDishUseCase";
+import { CreateIngredientUseCase } from "../../application/usecase/ingredient/CreateIngredientUseCase";
+import { ListIngredientUseCase } from "../../application/usecase/ingredient/ListIngredientUseCase";
+import { DishRepository } from "../../domain/repository/DishIngredient";
+import { IngredientRepository } from "../../domain/repository/IngredientRepository";
 import { InMemoryDishRepository } from "../persistence/repositories/Dish/InMemoryDishRepository";
 import { InMemoryIngredientRepository } from "../persistence/repositories/Ingredient/InMemoryIngredientRepository";
-import { DishController } from "../../interfaces/controllers/DishController";
-import { HealthController } from "../../interfaces/controllers/HealthController";
-import { IngredientController } from "../../interfaces/controllers/IngredientController";
-import { CONTROLLERTYPES } from "../../shared/types/ControllerTypes";
-import { USECASETYPES } from "../../shared/types/UseCaseTypes";
+import { DishController } from "../../application/interface/controller/DishController";
+import { HealthController } from "../../application/interface/controller/HealthController";
+import { IngredientController } from "../../application/interface/controller/IngredientController";
+import { CONTROLLERTYPES } from "../../shared/type/ControllerTypes";
+import { USECASETYPES } from "../../shared/type/UseCaseTypes";
 import { container } from "./containerBase";
 
 // Repositories

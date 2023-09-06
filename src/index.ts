@@ -5,7 +5,7 @@ import { InversifyExpressServer } from 'inversify-express-utils';
 import container from './infraestructure/dependency-injection/container'
 import * as bodyParser from 'body-parser';
 import { Request, Response, NextFunction } from 'express';
-import { errorHandlerMiddleware } from './interfaces/middlewares/ErrorHandler';
+import { errorHandlerMiddleware } from './application/interface/middleware/ErrorHandler';
 
 const server = new InversifyExpressServer(container, null, {rootPath: ''});
 
