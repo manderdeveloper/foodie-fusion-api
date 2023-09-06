@@ -1,8 +1,10 @@
+import { DishCode } from "../valueobject/dish/DishCode";
 import { DishDescription } from "../valueobject/dish/DishDescription";
 import { DishId } from "../valueobject/dish/DishId";
 import { DishName } from "../valueobject/dish/DishName";
 import { DishRecipe } from "../valueobject/dish/DishRecipe";
 import { DishType } from "../valueobject/dish/DishType";
+import { UuidValueObject } from "../valueobject/primitives/UuidValueObject";
 import { Ingredient } from "./Ingredient";
 
 export class Dish {
@@ -12,14 +14,16 @@ export class Dish {
   readonly type: DishType;
   readonly description: DishDescription;
   readonly recipe: DishRecipe;
+  readonly code: DishCode;
   
-  constructor (id: DishId, name: DishName, ingredients: Ingredient[], type: DishType, description: DishDescription, recipe: DishRecipe) {
+  constructor (id: DishId, name: DishName, ingredients: Ingredient[], type: DishType, description: DishDescription, recipe: DishRecipe, code: DishCode) {
     this.id = id;
     this.name = name;
     this.ingredients = ingredients;
     this.type = type;
     this.description = description;
     this.recipe = recipe;
+    this.code = code;
   }
 
   static fromPrimitives(plainData: { id: string, name: string, ingredients: Ingredient[], type: string, description: string, recipe: string}): Dish {
@@ -29,8 +33,9 @@ export class Dish {
       plainData.ingredients,
       new DishType(plainData.type),
       new DishDescription(plainData.description),
-      new DishRecipe(plainData.recipe)
-    );
+      new DishRecipe(plainData.recipe),
+      new DishCode(UuidValueObject.random().value)
+    )
   }
 
   toPrimitives(): any {
@@ -40,7 +45,8 @@ export class Dish {
       ingredients: this.ingredients,
       type: this.type.value,
       description: this.description.value,
-      recipe: this.recipe.value
+      recipe: this.recipe.value,
+      code: this.code.value
     };
   }
 
