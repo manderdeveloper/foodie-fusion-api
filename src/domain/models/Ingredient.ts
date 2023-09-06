@@ -1,7 +1,6 @@
 import { IngredientId } from "../valueObjects/ingredient/IngredientId";
 import { IngredientName } from "../valueObjects/ingredient/IngredientName";
 
-
 export class Ingredient {
   readonly id: IngredientId;
   readonly name: IngredientName;

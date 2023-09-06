@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { AppError } from '../../shared/errors/AppError';
-import { container } from '../../injection/containerBase';
+import { container } from '../../infraestructure/dependency-injection/containerBase';
 import { Logger } from './Logger';
 
 export function errorHandlerMiddleware(
