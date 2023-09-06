@@ -3,6 +3,7 @@ import { inject, injectable } from "inversify";
 import { User } from "../../domain/model/User";
 import { UserRepository } from "../../domain/repository/UserRepository";
 import { NotFoundError } from "../../shared/error/NotFoundError";
+import { ForbiddenError } from '../../shared/error/ForbiddenError';
 
 @injectable()
 export class AuthService {
@@ -21,14 +22,15 @@ export class AuthService {
       userId: user.id,
       userEmail: user.email
     }
-    const secretKey = process.env.JWT_SECRET;
-    const options = {
-      expiresIn: '8h'
-    }
-    return jwt.sign(payload, secretKey, options);
+    const options = { expiresIn: '8h'};
+    return jwt.sign(payload, process.env.JWT_SECRET, options);
   }
 
   async validateAuthToken(authToken: string): Promise<User> {
-    return 
+    const decodedUser = jwt.verify(authToken, process.env.JWT_SECRET) as {userId: {value:string}, userEmail: Object};
+    const userId = decodedUser.userId.value;
+    const user = await this.userRepository.getById(userId);
+    if (!user) throw new ForbiddenError();
+    return user;
   }
 }

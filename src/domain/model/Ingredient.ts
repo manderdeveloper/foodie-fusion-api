@@ -1,23 +1,27 @@
 import { IngredientId } from "../valueobject/ingredient/IngredientId";
 import { IngredientIsMain } from "../valueobject/ingredient/IngredientIsMain";
 import { IngredientName } from "../valueobject/ingredient/IngredientName";
+import { UserId } from "../valueobject/user/UserId";
 
 export class Ingredient {
   readonly id: IngredientId;
   readonly name: IngredientName;
   readonly isMain: IngredientIsMain;
+  readonly user: UserId;
 
-  constructor (id: IngredientId, name: IngredientName, isMain: IngredientIsMain) {
+  constructor (id: IngredientId, name: IngredientName, isMain: IngredientIsMain, user: UserId) {
     this.id = id;
     this.name = name;
     this.isMain = isMain;
+    this.user = user;
   }
 
-  static fromPrimitives(plainData: { id: string, name: string, isMain: boolean}): Ingredient {
+  static fromPrimitives(plainData: { id: string, name: string, isMain: boolean, user:string}): Ingredient {
     return new Ingredient(
       new IngredientId(plainData.id),
       new IngredientName(plainData.name),
-      new IngredientIsMain(plainData.isMain)
+      new IngredientIsMain(plainData.isMain),
+      new UserId(plainData.user)
     );
   }
 

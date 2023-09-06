@@ -11,6 +11,11 @@ export class InMemoryDishRepository implements DishRepository {
     return Promise.resolve(this.dishes);
   }
 
+  getAllDishesByUser(userId: string) {
+    const dishes = this.dishes.filter(dish => dish.user.value === userId);
+    return Promise.resolve(dishes || []);
+  }
+
   getById(id: string): Promise<Dish | null> {
     const dish = this.dishes.find(dish => dish.id.value === id);
     return Promise.resolve(dish || null);

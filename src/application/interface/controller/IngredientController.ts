@@ -4,6 +4,8 @@ import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
 import { CreateIngredientUseCase } from "../../usecase/ingredient/CreateIngredientUseCase";
 import { NextFunction, Request, Response } from "express";
 import { ListIngredientUseCase } from "../../usecase/ingredient/ListIngredientUseCase";
+import { UserRequest } from "../../../shared/model/Request";
+import { validationAuthMiddleware } from "../middleware/Auth";
 
 
 @controller('/api/ingredients')
@@ -13,11 +15,11 @@ export class IngredientController {
     @inject(USECASETYPES.ListIngredientUseCase) private listIngredientUseCase: ListIngredientUseCase
   ) { }
 
-  @httpPost('/')
-  async create(req: Request, res: Response, next: NextFunction) {
+  @httpPost('/', validationAuthMiddleware())
+  async create(req: UserRequest, res: Response, next: NextFunction) {
     try {
       const body = req.body;
-      await this.createIngredientUseCase.execute(body);
+      await this.createIngredientUseCase.execute(body, req.user);
       return res.status(201).json({message: 'Created'})
 
     } catch (error) {
@@ -25,11 +27,11 @@ export class IngredientController {
     }
   }
 
-  @httpGet('/')
-  async list(req: Request, res: Response, next: NextFunction) {
+  @httpGet('/', validationAuthMiddleware())
+  async list(req: UserRequest, res: Response, next: NextFunction) {
     try {
       
-      const ingredients = await this.listIngredientUseCase.execute();
+      const ingredients = await this.listIngredientUseCase.execute(req.user);
       return res.status(200).json(ingredients)
 
     } catch (error) {

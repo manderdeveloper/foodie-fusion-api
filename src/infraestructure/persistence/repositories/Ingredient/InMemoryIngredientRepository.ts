@@ -1,14 +1,28 @@
 import { injectable } from "inversify";
 import { Ingredient } from "../../../../domain/model/Ingredient";
 import { IngredientRepository } from "../../../../domain/repository/IngredientRepository";
+import { INIT_INGREDIENTS } from "../../../config/IngredientsInitialization";
 
 @injectable()
 export class InMemoryIngredientRepository implements IngredientRepository {
   
   private ingredients : Ingredient[] = [];
 
+  constructor() {
+    const primitiveIngredients = INIT_INGREDIENTS;
+    for (let primitiveIngredient of primitiveIngredients) {
+      const ingredient = Ingredient.fromPrimitives( {id: primitiveIngredient.id, name: primitiveIngredient.name, isMain: primitiveIngredient.isMain, user: "834b7fa2-1fe7-42d0-bcf5-bfc8e1322acc"} );
+      this.ingredients.push(ingredient);
+    }
+  }
+
   getAll(): Promise<Ingredient[]> {
     return Promise.resolve(this.ingredients);
+  }
+
+  getAllIngredientsByUser(userId: string) {
+    const ingredients = this.ingredients.filter(ingredient => ingredient.user.value === userId);
+    return Promise.resolve(ingredients || []);
   }
 
   getById(id: string): Promise<Ingredient | null> {

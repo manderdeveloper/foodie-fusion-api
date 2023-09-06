@@ -4,6 +4,8 @@ import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
 import { NextFunction, Request, Response } from "express";
 import { CreateDishUseCase } from "../../usecase/dish/CreateDishUseCase";
 import { ListDishUseCase } from "../../usecase/dish/ListDishUseCase";
+import { validationAuthMiddleware } from "../middleware/Auth";
+import { UserRequest } from "../../../shared/model/Request";
 
 
 @controller('/api/dishes')
@@ -13,11 +15,11 @@ export class DishController {
     @inject(USECASETYPES.ListDishUseCase) private listDishUseCase: ListDishUseCase
   ) { }
 
-  @httpPost('/')
-  async create(req: Request, res: Response, next: NextFunction) {
+  @httpPost('/', validationAuthMiddleware())
+  async create(req: UserRequest, res: Response, next: NextFunction) {
     try {
       const body = req.body;
-      await this.createDishUseCase.execute(body);
+      await this.createDishUseCase.execute(body, req.user);
       return res.status(201).json({message: 'Created'})
 
     } catch (error) {
@@ -25,11 +27,11 @@ export class DishController {
     }
   }
 
-  @httpGet('/')
-  async list(req: Request, res: Response, next: NextFunction) {
+  @httpGet('/', validationAuthMiddleware())
+  async list(req: UserRequest, res: Response, next: NextFunction) {
     try {
       
-      const ingredients = await this.listDishUseCase.execute();
+      const ingredients = await this.listDishUseCase.execute(req.user);
       return res.status(200).json(ingredients)
 
     } catch (error) {

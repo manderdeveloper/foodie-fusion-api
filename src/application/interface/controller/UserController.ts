@@ -4,7 +4,7 @@ import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
 import { NextFunction, Request, Response } from "express";
 import { CreateUserUseCase } from "../../usecase/user/CreateUserCase";
 import { ListUserUseCase } from "../../usecase/user/ListUserUseCase";
-import { validationAdminApiKey } from "../middleware/Auth";
+import { validationAdminApiKey } from "../middleware/ApiKey";
 
 
 @controller('/api/users')
