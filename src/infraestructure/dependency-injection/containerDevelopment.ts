@@ -21,6 +21,10 @@ import { CreateUserUseCase } from "../../application/usecase/user/CreateUserCase
 import { ListUserUseCase } from "../../application/usecase/user/ListUserUseCase";
 import { AuthController } from "../../application/interface/controller/AuthController";
 import { AuthService } from "../../application/service/AuthService";
+import { PasswordService } from "../../domain/service/PasswordService";
+import { BcryptPasswordService } from "../service/BcryptPasswordService";
+import { JWTAuthTokenService } from "../service/JWTAuthTokenService";
+import { AuthTokenService } from "../../domain/service/AuthTokenService";
 
 // Repositories
 container.bind<IngredientRepository>('IngredientRepository').toConstantValue(new InMemoryIngredientRepository);
@@ -46,6 +50,8 @@ container.bind<ListUserUseCase>(USECASETYPES.ListUserUseCase).to(ListUserUseCase
 
 //Services
 container.bind<AuthService>('AuthService').to(AuthService);
+container.bind<PasswordService>('PasswordService').to(BcryptPasswordService);
+container.bind<AuthTokenService>('AuthTokenService').to(JWTAuthTokenService);
 
 //Middlewares
 container.bind<Logger>('Logger').to(ConsoleLogger);

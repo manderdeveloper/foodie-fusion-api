@@ -6,7 +6,6 @@ import { CreateUserUseCase } from "../../usecase/user/CreateUserCase";
 import { ListUserUseCase } from "../../usecase/user/ListUserUseCase";
 import { validationAdminApiKey } from "../middleware/ApiKey";
 import { CreateUserDto } from "../../dtos/controller/CreateUserDto";
-import { CreateIngredientValidator } from "../../validator/controller/CreateIngredientValidator";
 import { validationHttpMiddleware } from "../middleware/HttpValidation";
 import { CreateUserValidator } from "../../validator/controller/CreateUserValidator";
 

@@ -9,7 +9,6 @@ import { INITIAL_DISHES } from "../../../infraestructure/config/DishesInitializa
 import { Dish } from "../../../domain/model/Dish";
 import { DishRepository } from "../../../domain/repository/DishIngredient";
 import { CreateUserDto } from "../../dtos/controller/CreateUserDto";
-import { body } from "express-validator";
 
 
 @injectable()

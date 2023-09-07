@@ -1,9 +1,10 @@
+import { container } from "../../infraestructure/dependency-injection/containerBase";
+import { PasswordService } from "../service/PasswordService";
 import { UserEmail } from "../valueobject/user/UserEmail";
 import { UserId } from "../valueobject/user/UserId";
 import { UserLastName } from "../valueobject/user/UserLastName";
 import { UserName } from "../valueobject/user/UserName";
 import { UserPassword } from "../valueobject/user/UserPassword";
-import * as bcrypt from 'bcrypt';
 
 export class User {
   readonly id: UserId;
@@ -21,8 +22,8 @@ export class User {
   }
 
   static async fromPrimitives (plainData: {id: string, email: string, name: string, lastname: string, password: string}): Promise<User> {
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(plainData.password, saltRounds);
+    const passwordService = container.get<PasswordService>('PasswordService');
+    const hashedPassword = await passwordService.hashPassword(plainData.password);
 
     return new User(
       new UserId(plainData.id),
