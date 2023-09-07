@@ -1,4 +1,4 @@
-import { container } from "../../infraestructure/dependency-injection/containerBase";
+import { container } from "../../dependency-injection/containerBase";
 import { PasswordService } from "../service/PasswordService";
 import { UserEmail } from "../valueobject/user/UserEmail";
 import { UserId } from "../valueobject/user/UserId";

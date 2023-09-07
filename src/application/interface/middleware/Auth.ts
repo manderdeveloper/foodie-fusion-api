@@ -1,5 +1,5 @@
 import { Response, NextFunction } from "express";
-import { container } from "../../../infraestructure/dependency-injection/containerBase";
+import { container } from "../../../dependency-injection/containerBase";
 import { AuthService } from "../../service/AuthService";
 import { ForbiddenError } from "../../../shared/error/ForbiddenError";
 import { UserRequest } from "../../../shared/model/Request";

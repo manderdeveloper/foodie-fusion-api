@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { container } from '../../../infraestructure/dependency-injection/containerBase';
+import { container } from '../../../dependency-injection/containerBase';
 import { Logger } from './Logger';
 
 export function errorHandlerMiddleware(
