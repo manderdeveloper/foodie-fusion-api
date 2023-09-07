@@ -1,4 +1,6 @@
 import * as jwt from 'jsonwebtoken';
+import * as bcrypt from 'bcrypt';
+
 import { inject, injectable } from "inversify";
 import { User } from "../../domain/model/User";
 import { UserRepository } from "../../domain/repository/UserRepository";
@@ -15,6 +17,8 @@ export class AuthService {
   async login(dto: LoginDto): Promise<string> {
     const user = await this.userRepository.getByEmail(dto.email);
     if (!user) throw new NotFoundError();
+    const isPasswordValid = await bcrypt.compare(dto.password, user.password.value);
+    if (!isPasswordValid) throw new ForbiddenError();
     return this.generateJWT(user);
   }
 
