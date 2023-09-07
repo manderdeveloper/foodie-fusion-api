@@ -1,6 +1,7 @@
+import { User } from "@domain/model/User";
+import { IngredientRepository } from "@domain/repository/IngredientRepository";
 import { inject, injectable } from "inversify";
-import { IngredientRepository } from "../../../domain/repository/IngredientRepository";
-import { User } from "../../../domain/model/User";
+
 
 
 @injectable()

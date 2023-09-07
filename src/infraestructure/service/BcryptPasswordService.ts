@@ -1,5 +1,5 @@
+import { PasswordService } from '@domain/service/PasswordService';
 import * as bcrypt from 'bcrypt';
-import { PasswordService } from "../../domain/service/PasswordService";
 import { injectable } from 'inversify';
 
 @injectable()

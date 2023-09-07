@@ -1,13 +1,14 @@
+import { CreateUserDto } from "@application/dtos/controller/CreateUserDto";
+import { CreateUserUseCase } from "@application/usecase/user/CreateUserCase";
+import { ListUserUseCase } from "@application/usecase/user/ListUserUseCase";
+import { CreateUserValidator } from "@application/validator/controller/CreateUserValidator";
+import { USECASETYPES } from "@shared/type/UseCaseTypes";
+import { Request, Response, NextFunction } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
-import { NextFunction, Request, Response } from "express";
-import { CreateUserUseCase } from "../../usecase/user/CreateUserCase";
-import { ListUserUseCase } from "../../usecase/user/ListUserUseCase";
 import { validationAdminApiKey } from "../middleware/ApiKey";
-import { CreateUserDto } from "../../dtos/controller/CreateUserDto";
 import { validationHttpMiddleware } from "../middleware/HttpValidation";
-import { CreateUserValidator } from "../../validator/controller/CreateUserValidator";
+
 
 
 @controller('/api/users')

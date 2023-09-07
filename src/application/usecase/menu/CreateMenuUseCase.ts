@@ -1,13 +1,14 @@
+import { CreateMenuDto } from "@application/dtos/controller/CreateMenuDto";
+import DayOfWeek from "@domain/model/DayOfWeek";
+import { Meal } from "@domain/model/Meal";
+import { Menu } from "@domain/model/Menu";
+import { User } from "@domain/model/User";
+import { Week } from "@domain/model/Week";
+import { DishRepository } from "@domain/repository/DishIngredient";
+import { MenuRepository } from "@domain/repository/MenuRepository";
+import { BadRequestError } from "@shared/error/BadRequestError";
 import { injectable, inject } from "inversify";
-import { User } from "../../../domain/model/User";
-import { DishRepository } from "../../../domain/repository/DishIngredient";
-import { CreateMenuDto } from "../../dtos/controller/CreateMenuDto";
-import { MenuRepository } from "../../../domain/repository/MenuRepository";
-import { BadRequestError } from "../../../shared/error/BadRequestError";
-import { Meal } from "../../../domain/model/Meal";
-import { Week } from "../../../domain/model/Week";
-import DayOfWeek from "../../../domain/model/DayOfWeek";
-import { Menu } from "../../../domain/model/Menu";
+
 
 
 @injectable()

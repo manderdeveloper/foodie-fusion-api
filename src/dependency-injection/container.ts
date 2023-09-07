@@ -1,4 +1,4 @@
-import { container } from './containerBase';
+import { container } from "./containerBase";
 
 const environment = process.env.NODE_ENV;
 

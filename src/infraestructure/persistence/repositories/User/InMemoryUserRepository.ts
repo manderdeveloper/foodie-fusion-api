@@ -1,6 +1,6 @@
+import { User } from "@domain/model/User";
+import { UserRepository } from "@domain/repository/UserRepository";
 import { injectable } from "inversify";
-import { User } from "../../../../domain/model/User";
-import { UserRepository } from "../../../../domain/repository/UserRepository";
 
 @injectable()
 export class InMemoryUserRepository implements UserRepository {

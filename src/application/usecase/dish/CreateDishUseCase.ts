@@ -1,9 +1,10 @@
+import { CreateDishDto } from "@application/dtos/controller/CreateDishDto";
+import { Dish } from "@domain/model/Dish";
+import { User } from "@domain/model/User";
+import { DishRepository } from "@domain/repository/DishIngredient";
+import { IngredientRepository } from "@domain/repository/IngredientRepository";
 import { inject, injectable } from "inversify";
-import { DishRepository } from "../../../domain/repository/DishIngredient";
-import { Dish } from "../../../domain/model/Dish";
-import { User } from "../../../domain/model/User";
-import { CreateDishDto } from "../../dtos/controller/CreateDishDto";
-import { IngredientRepository } from "../../../domain/repository/IngredientRepository";
+
 
 
 @injectable()

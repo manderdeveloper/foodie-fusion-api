@@ -1,6 +1,6 @@
+import { Menu } from "@domain/model/Menu";
+import { MenuRepository } from "@domain/repository/MenuRepository";
 import { injectable } from "inversify";
-import { MenuRepository } from "../../../../domain/repository/MenuRepository";
-import { Menu } from "../../../../domain/model/Menu";
 
 @injectable()
 export class InMemoryMenuRepository implements MenuRepository {

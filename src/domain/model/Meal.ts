@@ -1,9 +1,10 @@
-import { MealDayOfWeek } from "../valueobject/meal/MealDayOfWeek";
-import { MealId } from "../valueobject/meal/MealId";
-import { InvalidArgumentError } from "../valueobject/primitives/InvalidArgumentError";
-import { UuidValueObject } from "../valueobject/primitives/UuidValueObject";
+import { MealDayOfWeek } from "@domain/valueobject/meal/MealDayOfWeek";
+import { MealId } from "@domain/valueobject/meal/MealId";
+import { InvalidArgumentError } from "@domain/valueobject/primitives/InvalidArgumentError";
+import { UuidValueObject } from "@domain/valueobject/primitives/UuidValueObject";
 import { Dish } from "./Dish";
 import FoodType from "./FoodType";
+
 
 
 export class Meal {

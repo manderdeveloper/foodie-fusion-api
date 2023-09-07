@@ -1,14 +1,14 @@
+import { CreateUserDto } from "@application/dtos/controller/CreateUserDto";
+import { Dish } from "@domain/model/Dish";
+import { Ingredient } from "@domain/model/Ingredient";
+import { User } from "@domain/model/User";
+import { DishRepository } from "@domain/repository/DishIngredient";
+import { IngredientRepository } from "@domain/repository/IngredientRepository";
+import { UserRepository } from "@domain/repository/UserRepository";
+import { UuidValueObject } from "@domain/valueobject/primitives/UuidValueObject";
+import { INITIAL_DISHES } from "@infraestructure/config/DishesInitialization";
+import { INITIAL_INGREDIENTS } from "@infraestructure/config/IngredientsInitialization";
 import { id, inject, injectable } from "inversify";
-import { UserRepository } from "../../../domain/repository/UserRepository";
-import { User } from "../../../domain/model/User";
-import { IngredientRepository } from "../../../domain/repository/IngredientRepository";
-import { INITIAL_INGREDIENTS } from "../../../infraestructure/config/IngredientsInitialization";
-import { Ingredient } from "../../../domain/model/Ingredient";
-import { UuidValueObject } from "../../../domain/valueobject/primitives/UuidValueObject";
-import { INITIAL_DISHES } from "../../../infraestructure/config/DishesInitialization";
-import { Dish } from "../../../domain/model/Dish";
-import { DishRepository } from "../../../domain/repository/DishIngredient";
-import { CreateUserDto } from "../../dtos/controller/CreateUserDto";
 
 
 @injectable()

@@ -1,14 +1,14 @@
+import { CreateIngredientDto } from "@application/dtos/controller/CreateIngredientDto";
+import { CreateIngredientUseCase } from "@application/usecase/ingredient/CreateIngredientUseCase";
+import { ListIngredientUseCase } from "@application/usecase/ingredient/ListIngredientUseCase";
+import { CreateIngredientValidator } from "@application/validator/controller/CreateIngredientValidator";
+import { UserRequest } from "@shared/model/Request";
+import { USECASETYPES } from "@shared/type/UseCaseTypes";
+import { Response, NextFunction } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
-import { CreateIngredientUseCase } from "../../usecase/ingredient/CreateIngredientUseCase";
-import { NextFunction, Request, Response } from "express";
-import { ListIngredientUseCase } from "../../usecase/ingredient/ListIngredientUseCase";
-import { UserRequest } from "../../../shared/model/Request";
 import { validationAuthMiddleware } from "../middleware/Auth";
-import { CreateIngredientDto } from "../../dtos/controller/CreateIngredientDto";
 import { validationHttpMiddleware } from "../middleware/HttpValidation";
-import { CreateIngredientValidator } from "../../validator/controller/CreateIngredientValidator";
 
 
 @controller('/api/ingredients')

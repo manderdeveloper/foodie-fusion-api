@@ -1,8 +1,8 @@
+import { AuthService } from "@application/service/AuthService";
+import { container } from "@dependency-injection/containerBase";
+import { ForbiddenError } from "@shared/error/ForbiddenError";
+import { UserRequest } from "@shared/model/Request";
 import { Response, NextFunction } from "express";
-import { container } from "../../../dependency-injection/containerBase";
-import { AuthService } from "../../service/AuthService";
-import { ForbiddenError } from "../../../shared/error/ForbiddenError";
-import { UserRequest } from "../../../shared/model/Request";
 
 function validationAuthMiddleware() {
   return async function (req: UserRequest, res: Response, next: NextFunction) {

@@ -1,6 +1,7 @@
+import { container } from '@dependency-injection/containerBase';
 import { Request, Response, NextFunction } from 'express';
-import { container } from '../../../dependency-injection/containerBase';
 import { Logger } from './Logger';
+
 
 export function errorHandlerMiddleware(
   error: any,

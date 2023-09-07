@@ -1,7 +1,8 @@
-import { IngredientId } from "../valueobject/ingredient/IngredientId";
-import { IngredientIsMain } from "../valueobject/ingredient/IngredientIsMain";
-import { IngredientName } from "../valueobject/ingredient/IngredientName";
-import { UserId } from "../valueobject/user/UserId";
+import { IngredientId } from "@domain/valueobject/ingredient/IngredientId";
+import { IngredientIsMain } from "@domain/valueobject/ingredient/IngredientIsMain";
+import { IngredientName } from "@domain/valueobject/ingredient/IngredientName";
+import { UserId } from "@domain/valueobject/user/UserId";
+
 
 export class Ingredient {
   readonly id: IngredientId;

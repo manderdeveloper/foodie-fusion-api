@@ -1,6 +1,6 @@
+import { User } from "@domain/model/User";
+import { MenuRepository } from "@domain/repository/MenuRepository";
 import { injectable, inject } from "inversify";
-import { User } from "../../../domain/model/User";
-import { MenuRepository } from "../../../domain/repository/MenuRepository";
 
 @injectable()
 export class ListMenuUseCase {

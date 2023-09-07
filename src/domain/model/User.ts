@@ -1,10 +1,11 @@
-import { container } from "../../dependency-injection/containerBase";
-import { PasswordService } from "../service/PasswordService";
-import { UserEmail } from "../valueobject/user/UserEmail";
-import { UserId } from "../valueobject/user/UserId";
-import { UserLastName } from "../valueobject/user/UserLastName";
-import { UserName } from "../valueobject/user/UserName";
-import { UserPassword } from "../valueobject/user/UserPassword";
+import container from "@dependency-injection/container";
+import { PasswordService } from "@domain/service/PasswordService";
+import { UserEmail } from "@domain/valueobject/user/UserEmail";
+import { UserId } from "@domain/valueobject/user/UserId";
+import { UserLastName } from "@domain/valueobject/user/UserLastName";
+import { UserName } from "@domain/valueobject/user/UserName";
+import { UserPassword } from "@domain/valueobject/user/UserPassword";
+
 
 export class User {
   readonly id: UserId;

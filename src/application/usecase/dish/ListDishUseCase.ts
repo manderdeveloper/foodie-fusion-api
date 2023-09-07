@@ -1,6 +1,7 @@
+import { User } from "@domain/model/User";
+import { DishRepository } from "@domain/repository/DishIngredient";
 import { inject, injectable } from "inversify";
-import { DishRepository } from "../../../domain/repository/DishIngredient";
-import { User } from "../../../domain/model/User";
+
 
 @injectable()
 export class ListDishUseCase {

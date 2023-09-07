@@ -1,11 +1,12 @@
 import { inject, injectable } from "inversify";
 import { User } from "../../domain/model/User";
-import { UserRepository } from "../../domain/repository/UserRepository";
-import { NotFoundError } from "../../shared/error/NotFoundError";
-import { ForbiddenError } from '../../shared/error/ForbiddenError';
-import { LoginDto } from '../dtos/controller/LoginDto';
-import { PasswordService } from '../../domain/service/PasswordService';
-import { AuthTokenService } from '../../domain/service/AuthTokenService';
+import { LoginDto } from "@application/dtos/controller/LoginDto";
+import { UserRepository } from "@domain/repository/UserRepository";
+import { AuthTokenService } from "@domain/service/AuthTokenService";
+import { PasswordService } from "@domain/service/PasswordService";
+import { ForbiddenError } from "@shared/error/ForbiddenError";
+import { NotFoundError } from "@shared/error/NotFoundError";
+
 
 @injectable()
 export class AuthService {

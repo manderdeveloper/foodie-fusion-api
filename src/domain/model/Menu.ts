@@ -1,8 +1,9 @@
-import { MenuId } from "../valueobject/menu/MenuId";
-import { InvalidArgumentError } from "../valueobject/primitives/InvalidArgumentError";
-import { UserId } from "../valueobject/user/UserId";
+import { MenuId } from "@domain/valueobject/menu/MenuId";
+import { InvalidArgumentError } from "@domain/valueobject/primitives/InvalidArgumentError";
+import { UserId } from "@domain/valueobject/user/UserId";
 import { Meal } from "./Meal";
 import { Week } from "./Week";
+
 
 export class Menu {
 

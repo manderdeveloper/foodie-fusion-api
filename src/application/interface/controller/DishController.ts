@@ -1,14 +1,15 @@
+import { CreateDishDto } from "@application/dtos/controller/CreateDishDto";
+import { CreateDishUseCase } from "@application/usecase/dish/CreateDishUseCase";
+import { ListDishUseCase } from "@application/usecase/dish/ListDishUseCase";
+import { CreateDishValidator } from "@application/validator/controller/CreateDishValidator";
+import { UserRequest } from "@shared/model/Request";
+import { USECASETYPES } from "@shared/type/UseCaseTypes";
+import { Response, NextFunction } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
-import { NextFunction, Request, Response } from "express";
-import { CreateDishUseCase } from "../../usecase/dish/CreateDishUseCase";
-import { ListDishUseCase } from "../../usecase/dish/ListDishUseCase";
 import { validationAuthMiddleware } from "../middleware/Auth";
-import { UserRequest } from "../../../shared/model/Request";
-import { CreateDishDto } from "../../dtos/controller/CreateDishDto";
 import { validationHttpMiddleware } from "../middleware/HttpValidation";
-import { CreateDishValidator } from "../../validator/controller/CreateDishValidator";
+
 
 
 @controller('/api/dishes')

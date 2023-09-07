@@ -1,5 +1,6 @@
+import { ForbiddenError } from '@shared/error/ForbiddenError';
 import { Response, NextFunction, Request } from 'express';
-import { ForbiddenError } from '../../../shared/error/ForbiddenError';
+
 
 function validationAdminApiKey() {
   return async function (req: Request, res: Response, next: NextFunction) {

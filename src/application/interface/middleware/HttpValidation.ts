@@ -1,6 +1,7 @@
+import { BadRequestError } from '@shared/error/BadRequestError';
 import { Request, Response, NextFunction } from 'express';
 import { validationResult, ValidationChain } from 'express-validator';
-import { BadRequestError } from '../../../shared/error/BadRequestError';
+
 
 function validationHttpMiddleware(validations: ValidationChain[]) {
   return async function (req: Request, res: Response, next: NextFunction) {

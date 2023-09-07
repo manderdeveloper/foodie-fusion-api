@@ -1,10 +1,11 @@
+import { LoginDto } from "@application/dtos/controller/LoginDto";
+import { AuthService } from "@application/service/AuthService";
+import { AuthValidator } from "@application/validator/controller/AuthValidator";
 import { NextFunction, Request, Response } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { AuthService } from "../../service/AuthService";
-import { LoginDto } from "../../dtos/controller/LoginDto";
 import { validationHttpMiddleware } from "../middleware/HttpValidation";
-import { AuthValidator } from "../../validator/controller/AuthValidator";
+
 
 
 @controller('/api/auth')

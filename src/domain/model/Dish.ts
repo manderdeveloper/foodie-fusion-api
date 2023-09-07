@@ -1,12 +1,13 @@
-import { DishCode } from "../valueobject/dish/DishCode";
-import { DishDescription } from "../valueobject/dish/DishDescription";
-import { DishId } from "../valueobject/dish/DishId";
-import { DishName } from "../valueobject/dish/DishName";
-import { DishRecipe } from "../valueobject/dish/DishRecipe";
-import { DishType } from "../valueobject/dish/DishType";
-import { UuidValueObject } from "../valueobject/primitives/UuidValueObject";
-import { UserId } from "../valueobject/user/UserId";
+import { DishCode } from "@domain/valueobject/dish/DishCode";
+import { DishDescription } from "@domain/valueobject/dish/DishDescription";
+import { DishId } from "@domain/valueobject/dish/DishId";
+import { DishName } from "@domain/valueobject/dish/DishName";
+import { DishRecipe } from "@domain/valueobject/dish/DishRecipe";
+import { DishType } from "@domain/valueobject/dish/DishType";
+import { UuidValueObject } from "@domain/valueobject/primitives/UuidValueObject";
+import { UserId } from "@domain/valueobject/user/UserId";
 import { Ingredient } from "./Ingredient";
+
 
 export class Dish {
   readonly id: DishId;

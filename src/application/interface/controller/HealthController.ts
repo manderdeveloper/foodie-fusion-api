@@ -10,7 +10,7 @@ export class HealthController {
   @httpGet('/')
   async health(req: Request, res: Response, next: NextFunction) {
     try {
-      return res.status(201).json({message: 'Ready'});
+      return res.status(200).json({message: 'Ready'});
 
     } catch (error) {
       next(error);

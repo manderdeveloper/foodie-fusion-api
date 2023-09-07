@@ -1,7 +1,7 @@
+import { User } from "@domain/model/User";
+import { MenuRepository } from "@domain/repository/MenuRepository";
+import { NotFoundError } from "@shared/error/NotFoundError";
 import { injectable, inject, id } from "inversify";
-import { User } from "../../../domain/model/User";
-import { MenuRepository } from "../../../domain/repository/MenuRepository";
-import { NotFoundError } from "../../../shared/error/NotFoundError";
 
 
 @injectable()

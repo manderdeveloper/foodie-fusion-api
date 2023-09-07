@@ -1,5 +1,6 @@
+import FoodType from '@domain/model/FoodType';
 import { body } from 'express-validator';
-import FoodType from '../../../domain/model/FoodType';
+
 
 class CreateDishValidator {
   public static validateCreateDish() {

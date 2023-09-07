@@ -1,7 +1,7 @@
-import { UuidValueObject } from "../valueobject/primitives/UuidValueObject";
-import { WeekId } from "../valueobject/week/WeekId";
-import { WeekNumber } from "../valueobject/week/WeekNumber";
-import { WeekYear } from "../valueobject/week/WeekYear";
+import { UuidValueObject } from "@domain/valueobject/primitives/UuidValueObject";
+import { WeekId } from "@domain/valueobject/week/WeekId";
+import { WeekNumber } from "@domain/valueobject/week/WeekNumber";
+import { WeekYear } from "@domain/valueobject/week/WeekYear";
 
 
 export class Week {

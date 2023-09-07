@@ -2,12 +2,21 @@
     "compilerOptions": {
         "target": "es5",
         "lib": ["es6"],
-        "types": ["reflect-metadata"],
+        "types": ["reflect-metadata", "jest", "@types/jest"],
         "module": "commonjs",
         "outDir": "./dist",
         "moduleResolution": "node",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "esModuleInterop": true,
+        "baseUrl": "./",
+        "paths": {
+            "@application/*": ["src/application/*"],
+            "@dependency-injection/*": ["src/dependency-injection/*"],
+            "@domain/*": ["src/domain/*"],
+            "@infraestructure/*": ["src/infraestructure/*"],
+            "@shared/*": ["src/shared/*"],
+            "@tests/*": ["tests/*"],
+        }
     }
 }

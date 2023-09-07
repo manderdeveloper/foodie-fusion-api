@@ -1,8 +1,9 @@
-import { injectable } from "inversify";
-import { Dish } from "../../../../domain/model/Dish";
-import { DishRepository } from "../../../../domain/repository/DishIngredient";
-import FoodType from "../../../../domain/model/FoodType";
 import _shuffle from 'lodash/shuffle';
+import { injectable } from "inversify";
+import { Dish } from '@domain/model/Dish';
+import FoodType from '@domain/model/FoodType';
+import { DishRepository } from '@domain/repository/DishIngredient';
+
 
 @injectable()
 export class InMemoryDishRepository implements DishRepository {

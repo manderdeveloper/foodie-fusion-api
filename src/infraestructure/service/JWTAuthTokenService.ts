@@ -1,8 +1,8 @@
 import * as jwt from 'jsonwebtoken';
 
 import { injectable } from "inversify";
-import { AuthTokenService } from "../../domain/service/AuthTokenService";
-import { User } from "../../domain/model/User";
+import { User } from '@domain/model/User';
+import { AuthTokenService } from '@domain/service/AuthTokenService';
 
 @injectable()
 export class JWTAuthTokenService implements AuthTokenService {

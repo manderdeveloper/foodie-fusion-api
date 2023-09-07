@@ -1,15 +1,16 @@
+import { CreateMenuDto } from "@application/dtos/controller/CreateMenuDto";
+import { CreateMenuUseCase } from "@application/usecase/menu/CreateMenuUseCase";
+import { ListMenuUseCase } from "@application/usecase/menu/ListMenuUseCase";
+import { RetrieveMenuUseCase } from "@application/usecase/menu/RetrieveMenuUseCase";
+import { MenuValidator } from "@application/validator/controller/MenuValidator";
+import { UserRequest } from "@shared/model/Request";
+import { USECASETYPES } from "@shared/type/UseCaseTypes";
 import { Response, NextFunction } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost, next } from "inversify-express-utils";
-import { UserRequest } from "../../../shared/model/Request";
-import { USECASETYPES } from "../../../shared/type/UseCaseTypes";
-import { CreateMenuDto } from "../../dtos/controller/CreateMenuDto";
-import { CreateMenuUseCase } from "../../usecase/menu/CreateMenuUseCase";
-import { MenuValidator } from "../../validator/controller/MenuValidator";
 import { validationAuthMiddleware } from "../middleware/Auth";
 import { validationHttpMiddleware } from "../middleware/HttpValidation";
-import { RetrieveMenuUseCase } from "../../usecase/menu/RetrieveMenuUseCase";
-import { ListMenuUseCase } from "../../usecase/menu/ListMenuUseCase";
+
 
 
 @controller('/api/menus')

@@ -1,4 +1,5 @@
-import { User } from "../model/User";
+import { User } from "@domain/model/User";
+
 
 export interface AuthTokenService {
   generateToken(user: User): string;
