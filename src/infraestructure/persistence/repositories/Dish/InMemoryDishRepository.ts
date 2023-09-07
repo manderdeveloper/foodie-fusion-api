@@ -1,6 +1,8 @@
 import { injectable } from "inversify";
 import { Dish } from "../../../../domain/model/Dish";
 import { DishRepository } from "../../../../domain/repository/DishIngredient";
+import FoodType from "../../../../domain/model/FoodType";
+import _shuffle from 'lodash/shuffle';
 
 @injectable()
 export class InMemoryDishRepository implements DishRepository {
@@ -14,6 +16,15 @@ export class InMemoryDishRepository implements DishRepository {
   getAllDishesByUser(userId: string) {
     const dishes = this.dishes.filter(dish => dish.user.value === userId);
     return Promise.resolve(dishes || []);
+  }
+
+  getAllLaunchesByUser(userId: string): Promise<Dish[]> {
+    let dishes = this.dishes.filter(dish => dish.user.value === userId && [FoodType.BOTH.toString(), FoodType.LAUNCH.toString()].includes(dish.type.value));
+    return Promise.resolve(_shuffle(dishes) || []);
+  }
+  getAllDinnersByUser(userId: string): Promise<Dish[]> {
+    let dishes = this.dishes.filter(dish => dish.user.value === userId && [FoodType.BOTH.toString(), FoodType.DINNER.toString()].includes(dish.type.value));
+    return Promise.resolve(_shuffle(dishes) || []);
   }
 
   getById(id: string): Promise<Dish | null> {

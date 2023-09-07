@@ -29,7 +29,7 @@ export class UserController {
     }
   }
 
-  @httpGet('/')
+  @httpGet('/', validationAdminApiKey())
   async list(req: Request, res: Response, next: NextFunction) {
     try {
       

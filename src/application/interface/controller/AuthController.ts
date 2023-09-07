@@ -3,7 +3,6 @@ import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
 import { AuthService } from "../../service/AuthService";
 import { LoginDto } from "../../dtos/controller/LoginDto";
-import { CreateIngredientValidator } from "../../validator/controller/CreateIngredientValidator";
 import { validationHttpMiddleware } from "../middleware/HttpValidation";
 import { AuthValidator } from "../../validator/controller/AuthValidator";
 

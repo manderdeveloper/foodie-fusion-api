@@ -25,18 +25,26 @@ import { PasswordService } from "../../domain/service/PasswordService";
 import { BcryptPasswordService } from "../service/BcryptPasswordService";
 import { JWTAuthTokenService } from "../service/JWTAuthTokenService";
 import { AuthTokenService } from "../../domain/service/AuthTokenService";
+import { MenuRepository } from "../../domain/repository/MenuRepository";
+import { InMemoryMenuRepository } from "../persistence/repositories/Menu/InMemoryMenuRepository";
+import { MenuController } from "../../application/interface/controller/MenuController";
+import { CreateMenuUseCase } from "../../application/usecase/menu/CreateMenuUseCase";
+import { RetrieveMenuUseCase } from "../../application/usecase/menu/RetrieveMenuUseCase";
+import { ListMenuUseCase } from "../../application/usecase/menu/ListMenuUseCase";
 
 // Repositories
 container.bind<IngredientRepository>('IngredientRepository').toConstantValue(new InMemoryIngredientRepository);
 container.bind<DishRepository>('DishRepository').toConstantValue(new InMemoryDishRepository);
 container.bind<UserRepository>('UserRepository').toConstantValue(new InMemoryUserRepository);
+container.bind<MenuRepository>('MenuRepository').toConstantValue(new InMemoryMenuRepository)
 
 // Controllers
 container.bind<HealthController>(CONTROLLERTYPES.HealthController).to(HealthController);
 container.bind<IngredientController>(CONTROLLERTYPES.IngredientController).to(IngredientController);
 container.bind<DishController>(CONTROLLERTYPES.DishController).to(DishController);
 container.bind<UserController>(CONTROLLERTYPES.UserController).to(UserController);
-container.bind<AuthController>(CONTROLLERTYPES.AuthController).to(AuthController)
+container.bind<AuthController>(CONTROLLERTYPES.AuthController).to(AuthController);
+container.bind<MenuController>(CONTROLLERTYPES.MenuController).to(MenuController)
 
 //UseCases
 container.bind<CreateIngredientUseCase>(USECASETYPES.CreateIngredientUseCase).to(CreateIngredientUseCase);
@@ -47,6 +55,10 @@ container.bind<ListDishUseCase>(USECASETYPES.ListDishUseCase).to(ListDishUseCase
 
 container.bind<CreateUserUseCase>(USECASETYPES.CreateUserUseCase).to(CreateUserUseCase);
 container.bind<ListUserUseCase>(USECASETYPES.ListUserUseCase).to(ListUserUseCase);
+
+container.bind<CreateMenuUseCase>(USECASETYPES.CreateMenuUseCase).to(CreateMenuUseCase);
+container.bind<RetrieveMenuUseCase>(USECASETYPES.RetrieveMenuUseCase).to(RetrieveMenuUseCase);
+container.bind<ListMenuUseCase>(USECASETYPES.ListMenuUseCase).to(ListMenuUseCase);
 
 //Services
 container.bind<AuthService>('AuthService').to(AuthService);

@@ -7,7 +7,6 @@ import { ListDishUseCase } from "../../usecase/dish/ListDishUseCase";
 import { validationAuthMiddleware } from "../middleware/Auth";
 import { UserRequest } from "../../../shared/model/Request";
 import { CreateDishDto } from "../../dtos/controller/CreateDishDto";
-import { CreateIngredientValidator } from "../../validator/controller/CreateIngredientValidator";
 import { validationHttpMiddleware } from "../middleware/HttpValidation";
 import { CreateDishValidator } from "../../validator/controller/CreateDishValidator";
 
