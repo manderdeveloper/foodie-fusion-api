@@ -6,6 +6,7 @@ import { NextFunction, Request, Response } from "express";
 import { ListIngredientUseCase } from "../../usecase/ingredient/ListIngredientUseCase";
 import { UserRequest } from "../../../shared/model/Request";
 import { validationAuthMiddleware } from "../middleware/Auth";
+import { CreateIngredientDto } from "../../dtos/controller/CreateIngredientDto";
 
 
 @controller('/api/ingredients')
@@ -18,8 +19,8 @@ export class IngredientController {
   @httpPost('/', validationAuthMiddleware())
   async create(req: UserRequest, res: Response, next: NextFunction) {
     try {
-      const body = req.body;
-      await this.createIngredientUseCase.execute(body, req.user);
+      const dto: CreateIngredientDto = req.body;
+      await this.createIngredientUseCase.execute(dto, req.user);
       return res.status(201).json({message: 'Created'})
 
     } catch (error) {

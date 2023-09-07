@@ -8,6 +8,8 @@ import { UuidValueObject } from "../../../domain/valueobject/primitives/UuidValu
 import { INITIAL_DISHES } from "../../../infraestructure/config/DishesInitialization";
 import { Dish } from "../../../domain/model/Dish";
 import { DishRepository } from "../../../domain/repository/DishIngredient";
+import { CreateUserDto } from "../../dtos/controller/CreateUserDto";
+import { body } from "express-validator";
 
 
 @injectable()
@@ -18,8 +20,8 @@ export class CreateUserUseCase {
     @inject('DishRepository') private dishRepository: DishRepository
   ) {}
 
-  public async execute(body: any): Promise<any> {
-    const user = User.fromPrimitives({...body})
+  public async execute(dto: CreateUserDto): Promise<any> {
+    const user = User.fromPrimitives({...dto});
     await this.userRepository.create(user);
     const initalIngredients = INITIAL_INGREDIENTS;
     for (let rawIngredient of initalIngredients) {

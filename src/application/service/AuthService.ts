@@ -4,6 +4,7 @@ import { User } from "../../domain/model/User";
 import { UserRepository } from "../../domain/repository/UserRepository";
 import { NotFoundError } from "../../shared/error/NotFoundError";
 import { ForbiddenError } from '../../shared/error/ForbiddenError';
+import { LoginDto } from '../dtos/controller/LoginDto';
 
 @injectable()
 export class AuthService {
@@ -11,8 +12,8 @@ export class AuthService {
     @inject('UserRepository') private userRepository: UserRepository
   ) {}
 
-  async login(email: string, password: string): Promise<string> {
-    const user = await this.userRepository.getByEmail(email);
+  async login(dto: LoginDto): Promise<string> {
+    const user = await this.userRepository.getByEmail(dto.email);
     if (!user) throw new NotFoundError();
     return this.generateJWT(user);
   }

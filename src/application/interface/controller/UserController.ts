@@ -5,6 +5,7 @@ import { NextFunction, Request, Response } from "express";
 import { CreateUserUseCase } from "../../usecase/user/CreateUserCase";
 import { ListUserUseCase } from "../../usecase/user/ListUserUseCase";
 import { validationAdminApiKey } from "../middleware/ApiKey";
+import { CreateUserDto } from "../../dtos/controller/CreateUserDto";
 
 
 @controller('/api/users')
@@ -17,8 +18,8 @@ export class UserController {
   @httpPost('/', validationAdminApiKey())
   async create(req: Request, res: Response, next: NextFunction) {
     try {
-      const body = req.body;
-      await this.createUserUseCase.execute(body);
+      const dto: CreateUserDto = req.body;
+      await this.createUserUseCase.execute(dto);
       return res.status(201).json({message: 'Created'})
 
     } catch (error) {

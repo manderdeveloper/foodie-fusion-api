@@ -6,6 +6,7 @@ import { CreateDishUseCase } from "../../usecase/dish/CreateDishUseCase";
 import { ListDishUseCase } from "../../usecase/dish/ListDishUseCase";
 import { validationAuthMiddleware } from "../middleware/Auth";
 import { UserRequest } from "../../../shared/model/Request";
+import { CreateDishDto } from "../../dtos/controller/CreateDishDto";
 
 
 @controller('/api/dishes')
@@ -18,8 +19,8 @@ export class DishController {
   @httpPost('/', validationAuthMiddleware())
   async create(req: UserRequest, res: Response, next: NextFunction) {
     try {
-      const body = req.body;
-      await this.createDishUseCase.execute(body, req.user);
+      const dto: CreateDishDto = req.body;
+      await this.createDishUseCase.execute(dto, req.user);
       return res.status(201).json({message: 'Created'})
 
     } catch (error) {
