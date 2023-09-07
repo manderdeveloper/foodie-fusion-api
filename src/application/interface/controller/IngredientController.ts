@@ -7,6 +7,8 @@ import { ListIngredientUseCase } from "../../usecase/ingredient/ListIngredientUs
 import { UserRequest } from "../../../shared/model/Request";
 import { validationAuthMiddleware } from "../middleware/Auth";
 import { CreateIngredientDto } from "../../dtos/controller/CreateIngredientDto";
+import { validationHttpMiddleware } from "../middleware/HttpValidation";
+import { CreateIngredientValidator } from "../../validator/controller/CreateIngredientValidator";
 
 
 @controller('/api/ingredients')
@@ -16,7 +18,7 @@ export class IngredientController {
     @inject(USECASETYPES.ListIngredientUseCase) private listIngredientUseCase: ListIngredientUseCase
   ) { }
 
-  @httpPost('/', validationAuthMiddleware())
+  @httpPost('/', validationAuthMiddleware(), validationHttpMiddleware(CreateIngredientValidator.validateCreateIngredient()))
   async create(req: UserRequest, res: Response, next: NextFunction) {
     try {
       const dto: CreateIngredientDto = req.body;

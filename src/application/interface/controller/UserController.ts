@@ -6,6 +6,9 @@ import { CreateUserUseCase } from "../../usecase/user/CreateUserCase";
 import { ListUserUseCase } from "../../usecase/user/ListUserUseCase";
 import { validationAdminApiKey } from "../middleware/ApiKey";
 import { CreateUserDto } from "../../dtos/controller/CreateUserDto";
+import { CreateIngredientValidator } from "../../validator/controller/CreateIngredientValidator";
+import { validationHttpMiddleware } from "../middleware/HttpValidation";
+import { CreateUserValidator } from "../../validator/controller/CreateUserValidator";
 
 
 @controller('/api/users')
@@ -15,7 +18,7 @@ export class UserController {
     @inject(USECASETYPES.ListUserUseCase) private listUserUseCase: ListUserUseCase
   ) { }
 
-  @httpPost('/', validationAdminApiKey())
+  @httpPost('/', validationAdminApiKey(), validationHttpMiddleware(CreateUserValidator.validateCreateUser()))
   async create(req: Request, res: Response, next: NextFunction) {
     try {
       const dto: CreateUserDto = req.body;

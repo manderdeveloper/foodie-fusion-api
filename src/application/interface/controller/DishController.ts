@@ -7,6 +7,9 @@ import { ListDishUseCase } from "../../usecase/dish/ListDishUseCase";
 import { validationAuthMiddleware } from "../middleware/Auth";
 import { UserRequest } from "../../../shared/model/Request";
 import { CreateDishDto } from "../../dtos/controller/CreateDishDto";
+import { CreateIngredientValidator } from "../../validator/controller/CreateIngredientValidator";
+import { validationHttpMiddleware } from "../middleware/HttpValidation";
+import { CreateDishValidator } from "../../validator/controller/CreateDishValidator";
 
 
 @controller('/api/dishes')
@@ -16,7 +19,7 @@ export class DishController {
     @inject(USECASETYPES.ListDishUseCase) private listDishUseCase: ListDishUseCase
   ) { }
 
-  @httpPost('/', validationAuthMiddleware())
+  @httpPost('/', validationAuthMiddleware(), validationHttpMiddleware(CreateDishValidator.validateCreateDish()))
   async create(req: UserRequest, res: Response, next: NextFunction) {
     try {
       const dto: CreateDishDto = req.body;
