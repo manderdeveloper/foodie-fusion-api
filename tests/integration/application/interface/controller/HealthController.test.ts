@@ -1,7 +1,7 @@
 import "reflect-metadata";
-import container from "../../../../../src/dependency-injection/container";
 import { InversifyExpressServer } from "inversify-express-utils";
 import request from 'supertest';
+import container from "@dependency-injection/container";
 
 const server = new InversifyExpressServer(container, null, {rootPath: ''});
 const app = server.build();
