@@ -9,7 +9,7 @@ import { InversifyExpressServer } from 'inversify-express-utils';
 import { errorHandlerMiddleware } from '@application/interface/middleware/ErrorHandler';
 import container from '@dependency-injection/container';
 
-const server = new InversifyExpressServer(container, null, {rootPath: ''});
+const server = new InversifyExpressServer(container, null, {rootPath: '/api'});
 
 server.setConfig((app) => {
   app.use(bodyParser.urlencoded({extended: true}));

@@ -1,4 +1,4 @@
-import { AuthController } from "@application/interface/controller/AuthController";
+import { AuthController } from "@application/interface/controller/v1/AuthController";
 import { DishController } from "@application/interface/controller/DishController";
 import { HealthController } from "@application/interface/controller/HealthController";
 import { IngredientController } from "@application/interface/controller/IngredientController";

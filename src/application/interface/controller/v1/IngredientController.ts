@@ -1,4 +1,6 @@
 import { CreateIngredientDto } from "@application/dtos/controller/CreateIngredientDto";
+import { validationAuthMiddleware } from "@application/interface/middleware/Auth";
+import { validationHttpMiddleware } from "@application/interface/middleware/HttpValidation";
 import { CreateIngredientUseCase } from "@application/usecase/ingredient/CreateIngredientUseCase";
 import { ListIngredientUseCase } from "@application/usecase/ingredient/ListIngredientUseCase";
 import { CreateIngredientValidator } from "@application/validator/controller/CreateIngredientValidator";
@@ -7,11 +9,10 @@ import { USECASETYPES } from "@shared/type/UseCaseTypes";
 import { Response, NextFunction } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { validationAuthMiddleware } from "../middleware/Auth";
-import { validationHttpMiddleware } from "../middleware/HttpValidation";
 
 
-@controller('/api/ingredients')
+
+@controller('/v1/ingredients')
 export class IngredientController {
   constructor (
     @inject(USECASETYPES.CreateIngredientUseCase) private createIngredientUseCase: CreateIngredientUseCase,

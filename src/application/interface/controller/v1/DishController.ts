@@ -1,4 +1,6 @@
 import { CreateDishDto } from "@application/dtos/controller/CreateDishDto";
+import { validationAuthMiddleware } from "@application/interface/middleware/Auth";
+import { validationHttpMiddleware } from "@application/interface/middleware/HttpValidation";
 import { CreateDishUseCase } from "@application/usecase/dish/CreateDishUseCase";
 import { ListDishUseCase } from "@application/usecase/dish/ListDishUseCase";
 import { CreateDishValidator } from "@application/validator/controller/CreateDishValidator";
@@ -7,12 +9,10 @@ import { USECASETYPES } from "@shared/type/UseCaseTypes";
 import { Response, NextFunction } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { validationAuthMiddleware } from "../middleware/Auth";
-import { validationHttpMiddleware } from "../middleware/HttpValidation";
 
 
 
-@controller('/api/dishes')
+@controller('/v1/dishes')
 export class DishController {
   constructor (
     @inject(USECASETYPES.CreateDishUseCase) private createDishUseCase: CreateDishUseCase,

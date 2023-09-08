@@ -1,9 +1,4 @@
-import { AuthController } from "@application/interface/controller/AuthController";
-import { DishController } from "@application/interface/controller/DishController";
-import { HealthController } from "@application/interface/controller/HealthController";
-import { IngredientController } from "@application/interface/controller/IngredientController";
-import { MenuController } from "@application/interface/controller/MenuController";
-import { UserController } from "@application/interface/controller/UserController";
+import { AuthController } from "@application/interface/controller/v1/AuthController";
 import { Logger } from "@application/interface/middleware/Logger";
 import { AuthService } from "@application/service/AuthService";
 import { CreateDishUseCase } from "@application/usecase/dish/CreateDishUseCase";
@@ -31,6 +26,11 @@ import { JWTAuthTokenService } from "@infraestructure/service/JWTAuthTokenServic
 import { CONTROLLERTYPES } from "@shared/type/ControllerTypes";
 import { USECASETYPES } from "@shared/type/UseCaseTypes";
 import { container } from "./containerBase";
+import { DishController } from "@application/interface/controller/v1/DishController";
+import { HealthController } from "@application/interface/controller/v1/HealthController";
+import { IngredientController } from "@application/interface/controller/v1/IngredientController";
+import { MenuController } from "@application/interface/controller/v1/MenuController";
+import { UserController } from "@application/interface/controller/v1/UserController";
 
 
 // Repositories

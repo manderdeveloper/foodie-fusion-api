@@ -1,4 +1,6 @@
 import { CreateUserDto } from "@application/dtos/controller/CreateUserDto";
+import { validationAdminApiKey } from "@application/interface/middleware/ApiKey";
+import { validationHttpMiddleware } from "@application/interface/middleware/HttpValidation";
 import { CreateUserUseCase } from "@application/usecase/user/CreateUserCase";
 import { ListUserUseCase } from "@application/usecase/user/ListUserUseCase";
 import { CreateUserValidator } from "@application/validator/controller/CreateUserValidator";
@@ -6,12 +8,10 @@ import { USECASETYPES } from "@shared/type/UseCaseTypes";
 import { Request, Response, NextFunction } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
-import { validationAdminApiKey } from "../middleware/ApiKey";
-import { validationHttpMiddleware } from "../middleware/HttpValidation";
 
 
 
-@controller('/api/users')
+@controller('/v1/users')
 export class UserController {
   constructor (
     @inject(USECASETYPES.CreateUserUseCase) private createUserUseCase: CreateUserUseCase,

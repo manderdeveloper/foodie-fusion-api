@@ -1,4 +1,6 @@
 import { CreateMenuDto } from "@application/dtos/controller/CreateMenuDto";
+import { validationAuthMiddleware } from "@application/interface/middleware/Auth";
+import { validationHttpMiddleware } from "@application/interface/middleware/HttpValidation";
 import { CreateMenuUseCase } from "@application/usecase/menu/CreateMenuUseCase";
 import { ListMenuUseCase } from "@application/usecase/menu/ListMenuUseCase";
 import { RetrieveMenuUseCase } from "@application/usecase/menu/RetrieveMenuUseCase";
@@ -8,12 +10,10 @@ import { USECASETYPES } from "@shared/type/UseCaseTypes";
 import { Response, NextFunction } from "express";
 import { inject } from "inversify";
 import { controller, httpGet, httpPost, next } from "inversify-express-utils";
-import { validationAuthMiddleware } from "../middleware/Auth";
-import { validationHttpMiddleware } from "../middleware/HttpValidation";
 
 
 
-@controller('/api/menus')
+@controller('/v1/menus')
 export class MenuController {
   constructor (
     @inject(USECASETYPES.CreateMenuUseCase) private createMenuUseCase: CreateMenuUseCase,

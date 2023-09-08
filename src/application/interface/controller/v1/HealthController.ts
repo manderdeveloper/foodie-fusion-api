@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { controller, httpGet, httpPost } from "inversify-express-utils";
 
 
-@controller('/api/health')
+@controller('/v1/health')
 export class HealthController {
   constructor(
   ) {}
