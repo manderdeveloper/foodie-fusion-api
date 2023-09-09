@@ -16,7 +16,7 @@ export class InMemoryBaseRepository<T extends Searchable> implements BaseReposit
     this.items.push(model);
     return Promise.resolve();
   }
-  update(model: T): Promise<void> {
+  /*update(model: T): Promise<void> {
     const index = this.items.findIndex((item) => item.id.value === model.id.value);
     if (index === -1) {
       this.items[index] = model;
@@ -29,6 +29,6 @@ export class InMemoryBaseRepository<T extends Searchable> implements BaseReposit
       this.items.splice(index, 1);
     }
     return Promise.resolve();
-  }
+  }*/
   
 }
