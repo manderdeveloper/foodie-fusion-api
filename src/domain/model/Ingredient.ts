@@ -2,9 +2,10 @@ import { IngredientId } from "@domain/valueobject/ingredient/IngredientId";
 import { IngredientIsMain } from "@domain/valueobject/ingredient/IngredientIsMain";
 import { IngredientName } from "@domain/valueobject/ingredient/IngredientName";
 import { UserId } from "@domain/valueobject/user/UserId";
+import { Searchable } from "./Searchable";
 
 
-export class Ingredient {
+export class Ingredient implements Searchable {
   readonly id: IngredientId;
   readonly name: IngredientName;
   readonly isMain: IngredientIsMain;
