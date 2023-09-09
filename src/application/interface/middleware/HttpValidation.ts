@@ -11,7 +11,7 @@ function validationHttpMiddleware(validations: ValidationChain[]) {
     if (errors.isEmpty()) {
       next();
     } else {
-      next (new BadRequestError(errors.array().join('')));
+      next (new BadRequestError(JSON.stringify(errors.array())));
     }
   };
 }
