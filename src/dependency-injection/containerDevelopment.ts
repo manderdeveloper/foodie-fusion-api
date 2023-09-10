@@ -31,13 +31,18 @@ import { HealthController } from "@application/interface/controller/v1/HealthCon
 import { IngredientController } from "@application/interface/controller/v1/IngredientController";
 import { MenuController } from "@application/interface/controller/v1/MenuController";
 import { UserController } from "@application/interface/controller/v1/UserController";
+import { MongoUserRepository } from "@infraestructure/persistence/repositories/User/MongoUserRepository";
+import { MongoIngredientRepository } from "@infraestructure/persistence/repositories/Ingredient/MongoIngredientRepository";
+import { MongoDishRepository } from "@infraestructure/persistence/repositories/Dish/MongoDishRepository";
 
 
 // Repositories
-container.bind<IngredientRepository>('IngredientRepository').toConstantValue(new InMemoryIngredientRepository);
-container.bind<DishRepository>('DishRepository').toConstantValue(new InMemoryDishRepository);
-container.bind<UserRepository>('UserRepository').toConstantValue(new InMemoryUserRepository);
-container.bind<MenuRepository>('MenuRepository').toConstantValue(new InMemoryMenuRepository)
+container.bind<UserRepository>('UserRepository').to(MongoUserRepository);
+container.bind<IngredientRepository>('IngredientRepository').to(MongoIngredientRepository);
+container.bind<DishRepository>('DishRepository').to(MongoDishRepository);
+
+container.bind<MenuRepository>('MenuRepository').toConstantValue(new InMemoryMenuRepository);
+
 
 // Controllers
 container.bind<HealthController>(CONTROLLERTYPES.HealthController).to(HealthController);

@@ -8,7 +8,7 @@ export class UserFactory {
   }
 
   async createUserAndSave(userData: any): Promise<User> {
-    const fixtureUser = await User.fromPrimitives(userData)
+    const fixtureUser = await User.createFromPrimitives(userData)
     await this.userRepository.create(fixtureUser);
     return fixtureUser;
   }

@@ -1,4 +1,3 @@
-import { create } from "lodash";
 
 export interface BaseRepository<T> {
   getAll(): Promise<T[]>;

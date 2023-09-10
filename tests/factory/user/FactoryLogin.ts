@@ -14,7 +14,7 @@ export class LoginFactory {
 
   async createUserWithToken(): Promise<string> {
     const fixtureUser = generateUser();
-    await this.userRepository.create(await User.fromPrimitives(fixtureUser));
+    await this.userRepository.create(await User.createFromPrimitives(fixtureUser));
     const token = await this.authService.login(fixtureUser as LoginDto);
     return token;
   }

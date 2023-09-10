@@ -23,7 +23,7 @@ export class MenuFactory {
 
   async createUserWithMinimunDishes(): Promise<string> {
     const fixtureUser = generateUser();
-    await this.userRepository.create(await User.fromPrimitives(fixtureUser));
+    await this.userRepository.create(await User.createFromPrimitives(fixtureUser));
     await this.generateMinimunMenu(fixtureUser.id);
     const token = await this.authService.login(fixtureUser as LoginDto);
     return token;

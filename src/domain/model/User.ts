@@ -22,7 +22,7 @@ export class User {
     this.password = password;
   }
 
-  static async fromPrimitives (plainData: {id: string, email: string, name: string, lastname: string, password: string}): Promise<User> {
+  static async createFromPrimitives (plainData: {id: string, email: string, name: string, lastname: string, password: string}): Promise<User> {
     const passwordService = container.get<PasswordService>('PasswordService');
     const hashedPassword = await passwordService.hashPassword(plainData.password);
 
@@ -32,6 +32,16 @@ export class User {
       new UserName(plainData.name),
       new UserLastName(plainData.lastname),
       new UserPassword(hashedPassword)
+    )
+  }
+
+  static fromPrimitives (plainData: {id: string, email: string, name: string, lastname: string, password: string}): User {
+    return new User(
+      new UserId(plainData.id),
+      new UserEmail(plainData.email),
+      new UserName(plainData.name),
+      new UserLastName(plainData.lastname),
+      new UserPassword(plainData.password)
     )
   }
 

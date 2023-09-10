@@ -30,7 +30,8 @@ export class Ingredient {
     return {
       id: this.id.value,
       name: this.name.value,
-      isMain: this.isMain.value
+      isMain: this.isMain.value,
+      user: this.user.value
     };
   }
 

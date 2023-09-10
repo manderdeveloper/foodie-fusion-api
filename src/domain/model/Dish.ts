@@ -45,14 +45,16 @@ export class Dish {
   }
 
   toPrimitives(): any {
+    const rawIngredients = this.ingredients.map(ingredient => ingredient.id.value); 
     return {
       id: this.id.value,
       name: this.name.value,
-      ingredients: this.ingredients,
+      ingredients: rawIngredients,
       type: this.type.value,
       description: this.description.value,
       recipe: this.recipe.value,
-      code: this.code.value
+      code: this.code.value,
+      user: this.user.value
     };
   }
 

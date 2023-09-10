@@ -20,7 +20,7 @@ export class CreateUserUseCase {
   ) {}
 
   public async execute(dto: CreateUserDto): Promise<any> {
-    const user = await User.fromPrimitives({...dto});
+    const user = await User.createFromPrimitives({...dto});
     await this.userRepository.create(user);
     const initalIngredients = INITIAL_INGREDIENTS;
     for (let rawIngredient of initalIngredients) {
