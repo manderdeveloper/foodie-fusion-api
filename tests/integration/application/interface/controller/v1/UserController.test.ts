@@ -1,6 +1,6 @@
 
 import { CreateUserDto } from "@application/dtos/controller/CreateUserDto";
-import { generateUser } from "@tests/integration/fixtures/user/UserFixtures";
+import { generateUser } from "@tests/fixtures/user/UserFixture";
 import request from 'supertest';
 import server from 'src/server';
 

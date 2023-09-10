@@ -1,8 +1,8 @@
 
-import { generateUser } from "@tests/integration/fixtures/user/UserFixtures";
+import { generateUser } from "@tests/fixtures/user/UserFixture";
 import request from 'supertest';
 import server from 'src/server';
-import { UserFactory } from "@tests/integration/factory/user/FactoryUser";
+import { UserFactory } from "@tests/factory/user/FactoryUser";
 import { User } from "@domain/model/User";
 import { container } from "@dependency-injection/containerBase";
 import { LoginDto } from "@application/dtos/controller/LoginDto";
